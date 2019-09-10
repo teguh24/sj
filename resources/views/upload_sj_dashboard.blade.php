@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-md-6 col-md-offset-3"  style="border: 4px solid #a1a1a1;">
         	<h2><center><font color="white">Upload SJ </font></center></h2>
-            <center><form action="http://172.18.10.135/sj/public/upload/sj/dashboard" class="form-horizontal" method="post" enctype="multipart/form-data">
+            <center><form action="{{asset('upload/sj/dashboard')}}" class="form-horizontal" method="post" enctype="multipart/form-data">
 			{{ csrf_field() }}
 			<input type="file" name="sj" /><br>
 			<button class="btn btn-primary">Proses</button>
