@@ -61,9 +61,9 @@
         </thead>        
             <tbody>
                 @foreach($data as $row)
-                @if(\Carbon\Carbon::createFromFormat('Y-m-d',$row->TANGGAL_DELIVERY)->diffInDays(\Carbon\Carbon::createFromFormat('Y-m-d',$row->BALIK))>=7)
+                @if(\Carbon\Carbon::parse($row->TANGGAL_DELIVERY)->diffInDays(\Carbon\Carbon::parse($row->BALIK))>=7)
                 <tr class='danger'>
-                @elseif(\Carbon\Carbon::createFromFormat('Y-m-d',$row->TANGGAL_DELIVERY)->diffInDays(\Carbon\Carbon::createFromFormat('Y-m-d',$row->BALIK))>=2)
+                @elseif(\Carbon\Carbon::parse($row->TANGGAL_DELIVERY)->diffInDays(\Carbon\Carbon::parse($row->BALIK))>=2)
                 <tr class='warning'>
                 @else
                 <tr class='success'>
