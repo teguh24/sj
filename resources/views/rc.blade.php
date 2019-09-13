@@ -11,7 +11,7 @@
         <div class="col-md-6 col-md-offset-3"  style="border: 4px solid #a1a1a1;">
             <h2><center><font color="white">Scan Barcode -- Recheipt Check</font></center></h2>
             <center>
-                <form action="http://172.18.10.135/sj/public/rc" class="form-horizontal" method="post" enctype="multipart/form-data">
+                <form action="{{asset('rc')}}" class="form-horizontal" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
             <input type="text" class="form-control" autofocus placeholder="Scan Barcode" name="rc" /><br>
             <br><br>
