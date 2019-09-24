@@ -49,14 +49,8 @@
                 <th><small>RECHEIPT_CHECK</small></th>
                 <th><small>FINANCE</small></th>
                 <th><small>KIRIMAII</small></th>
-                @foreach($data as $row)
-                @if($row->FINANCE==null && Auth::user()->dept == 'ppic')
                 <th><small></small></th>
-                @endif
-                @if($row->KIRIMAII!=null && Auth::user()->dept == 'finance')
-                <th><small></small></th>
-                @endif
-                @endforeach                
+
             </tr>
         </thead>        
             <tbody>
@@ -106,11 +100,12 @@
                     @if($row->FINANCE==null && Auth::user()->dept == 'ppic')
                     <td><a href="{{asset('del/'.$row->PDSNUMBER)}}" class="btn btn-xs btn-danger">Del</a></td>
                     @endif
-                    @if($row->FINANCE!=null && Auth::user()->dept == 'finance')
+                    @if($row->FINANCE==null && Auth::user()->dept == 'finance')
                     <td><a href="{{asset('del/'.$row->PDSNUMBER)}}" class="btn btn-xs btn-danger">Del</a></td>
                     @else
                     <td></td>
                     @endif
+
                 </tr>
                 @endforeach
             </tbody>

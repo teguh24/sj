@@ -86,15 +86,15 @@ class MainController extends Controller
     }
     public function balik_store()
     {
-        if (DB::table('sj')->where('PDSNUMBER', $_POST['rc'])->count('PDSNUMBER')==null) {
+        if (DB::table('sj')->where('DOAII', $_POST['rc'])->count('PDSNUMBER')==null) {
             \Session::flash('warning', 'Nomor PDS Salah !!!'); 
             return redirect('/balik');
-        }elseif(DB::table('sj')->where('PDSNUMBER', $_POST['rc'])->count('BALIK')!=null){
+        }elseif(DB::table('sj')->where('DOAII', $_POST['rc'])->count('BALIK')!=null){
             \Session::flash('warning', 'SJ Sudah BALIK !!!'); 
             return redirect('/balik');
         }else{
         DB::table('sj')
-            ->where('PDSNUMBER', $_POST['rc'])
+            ->where('DOAII', $_POST['rc'])
              ->update(['BALIK' =>\Carbon\Carbon::now()]);
              \Session::flash('message', 'Sukses Simpan Nomor PDS = '.$_POST['rc']); 
              return redirect('/balik');
@@ -107,18 +107,18 @@ class MainController extends Controller
     }
     public function rc_store()
     {
-        if (DB::table('sj')->where('PDSNUMBER', $_POST['rc'])->count('PDSNUMBER')==null) {
+        if (DB::table('sj')->where('DOAII', $_POST['rc'])->count('PDSNUMBER')==null) {
             \Session::flash('warning', 'Nomor PDS Salah !!!'); 
             return redirect('/rc');
-        }elseif(DB::table('sj')->where('PDSNUMBER', $_POST['rc'])->count('BALIK')==null){
+        }elseif(DB::table('sj')->where('DOAII', $_POST['rc'])->count('BALIK')==null){
             \Session::flash('warning', 'SJ Belum BALIK !!!'); 
             return redirect('/rc');
-        }elseif(DB::table('sj')->where('PDSNUMBER', $_POST['rc'])->count('RECHEIPT_CHECK')!=null){
+        }elseif(DB::table('sj')->where('DOAII', $_POST['rc'])->count('RECHEIPT_CHECK')!=null){
             \Session::flash('warning', 'SJ Sudah RECHEIPT_CHECK !!!'); 
             return redirect('/rc');
         }else{
         DB::table('sj')
-            ->where('PDSNUMBER', $_POST['rc'])
+            ->where('DOAII', $_POST['rc'])
              ->update(['RECHEIPT_CHECK' =>\Carbon\Carbon::now()]);
              \Session::flash('message', 'Sukses Simpan Nomor PDS = '.$_POST['rc']); 
              return redirect('/rc')->with(['success' => 'Berhasil']);
@@ -131,21 +131,21 @@ class MainController extends Controller
     }
     public function fin_store()
     {
-        if (DB::table('sj')->where('PDSNUMBER', $_POST['rc'])->count('PDSNUMBER')==null) {
+        if (DB::table('sj')->where('DOAII', $_POST['rc'])->count('PDSNUMBER')==null) {
             \Session::flash('warning', 'Nomor PDS Salah !!!'); 
             return redirect('/fin');
-        }elseif(DB::table('sj')->where('PDSNUMBER', $_POST['rc'])->count('BALIK')==null){
+        }elseif(DB::table('sj')->where('DOAII', $_POST['rc'])->count('BALIK')==null){
             \Session::flash('warning', 'SJ Belum BALIK !!!'); 
             return redirect('/fin');
-        }elseif(DB::table('sj')->where('PDSNUMBER', $_POST['rc'])->count('RECHEIPT_CHECK')==null){
+        }elseif(DB::table('sj')->where('DOAII', $_POST['rc'])->count('RECHEIPT_CHECK')==null){
             \Session::flash('warning', 'SJ Belum RECHEIPT_CHECK !!!'); 
             return redirect('/fin');
-        }elseif(DB::table('sj')->where('PDSNUMBER', $_POST['rc'])->count('FINANCE')!=null){
+        }elseif(DB::table('sj')->where('DOAII', $_POST['rc'])->count('FINANCE')!=null){
             \Session::flash('warning', 'SJ Sudah di FINANCE !!!'); 
             return redirect('/fin');
         }else{
         DB::table('sj')
-            ->where('PDSNUMBER', $_POST['rc'])
+            ->where('DOAII', $_POST['rc'])
              ->update(['FINANCE' =>\Carbon\Carbon::now()]);
              \Session::flash('message', 'Sukses Simpan Nomor PDS = '.$_POST['rc']); 
              return redirect('/fin')->with(['success' => 'Berhasil']);
@@ -158,24 +158,24 @@ class MainController extends Controller
     }
     public function aii_store()
     {
-        if (DB::table('sj')->where('PDSNUMBER', $_POST['rc'])->count('PDSNUMBER')==null) {
+        if (DB::table('sj')->where('DOAII', $_POST['rc'])->count('PDSNUMBER')==null) {
             \Session::flash('warning', 'Nomor PDS Salah !!!'); 
             return redirect('/aii');
-        }elseif(DB::table('sj')->where('PDSNUMBER', $_POST['rc'])->count('BALIK')==null){
+        }elseif(DB::table('sj')->where('DOAII', $_POST['rc'])->count('BALIK')==null){
             \Session::flash('warning', 'SJ Belum BALIK !!!'); 
             return redirect('/aii');
-        }elseif(DB::table('sj')->where('PDSNUMBER', $_POST['rc'])->count('RECHEIPT_CHECK')==null){
+        }elseif(DB::table('sj')->where('DOAII', $_POST['rc'])->count('RECHEIPT_CHECK')==null){
             \Session::flash('warning', 'SJ Belum RECHEIPT_CHECK !!!'); 
             return redirect('/aii');
-        }elseif(DB::table('sj')->where('PDSNUMBER', $_POST['rc'])->count('FINANCE')==null){
+        }elseif(DB::table('sj')->where('DOAII', $_POST['rc'])->count('FINANCE')==null){
             \Session::flash('warning', 'SJ Belum di FINANCE !!!'); 
             return redirect('/aii');
-        }elseif(DB::table('sj')->where('PDSNUMBER', $_POST['rc'])->count('KIRIMAII')!=null){
+        }elseif(DB::table('sj')->where('DOAII', $_POST['rc'])->count('KIRIMAII')!=null){
             \Session::flash('warning', 'SJ Sudah kirim AII !!!'); 
             return redirect('/aii');        
         }else{
         DB::table('sj')
-            ->where('PDSNUMBER', $_POST['rc'])
+            ->where('DOAII', $_POST['rc'])
              ->update(['KIRIMAII' =>\Carbon\Carbon::now()]);
              \Session::flash('message', 'Sukses Simpan Nomor PDS = '.$_POST['rc']); 
              return redirect('/aii')->with(['success' => 'Berhasil']);
@@ -183,7 +183,7 @@ class MainController extends Controller
     }
     public function del_ppic($id)
     {
-        DB::table('sj')->where('PDSNUMBER',$id)->delete();
+        DB::table('sj')->where('DOAII',$id)->delete();
         \Session::flash('warning', 'PDS NUMBER berhasil dihapus');
         return redirect('/dashboard');
     }

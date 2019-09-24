@@ -32,7 +32,7 @@
                 <th><small>DOAII</small></th>
                 <th><small>DOAIIA</small></th>                
                 <th><small>SJ BALIK</small></th>
-                <th><small>RECHEIPT_CHECK</small></th>                
+                <th><small>KIRIM FINANCE</small></th>                
                 <th><small>FINANCE</small></th>
                 <th><small>KIRIMAII</small></th>                
             </tr>
