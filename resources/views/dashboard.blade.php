@@ -46,7 +46,7 @@
                 <th><small>DOAII</small></th>
                 <th><small>DOAIIA</small></th>                
                 <th><small>SJ BALIK</small></th>
-                <th><small>RECHEIPT_CHECK</small></th>
+                <th><small>KIRIM FINANCE</small></th>
                 <th><small>FINANCE</small></th>
                 <th><small>KIRIMAII</small></th>
                 <th><small></small></th>
@@ -99,12 +99,12 @@
                     </td>
                     @if($row->FINANCE==null && Auth::user()->dept == 'ppic')
                     <td><a href="{{asset('del/'.$row->PDSNUMBER)}}" class="btn btn-xs btn-danger">Del</a></td>
-                    @endif
-                    @if($row->FINANCE==null && Auth::user()->dept == 'finance')
+                    @elseif($row->FINANCE!=null && Auth::user()->dept == 'finance')
                     <td><a href="{{asset('del/'.$row->PDSNUMBER)}}" class="btn btn-xs btn-danger">Del</a></td>
                     @else
                     <td></td>
                     @endif
+                    
 
                 </tr>
                 @endforeach
