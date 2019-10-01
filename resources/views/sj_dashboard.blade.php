@@ -11,7 +11,7 @@
                 <div class="panel-body">
                     @if(Auth::user()->dept == 'ppic')
                     <a href="{{asset("/balik")}}" class="btn btn-md btn-warning">SJ BALIK</a>
-                    <a href="{{asset("/rc")}}" class="btn btn-md btn-success">RECHEIPT CHECK</a>
+                    <a href="{{asset("/rc")}}" class="btn btn-md btn-success">KIRIM FINANCE</a>
                     @elseif(Auth::user()->dept == 'finance')                
                     <a href="{{asset("/fin")}}" class="btn btn-md btn-success">FINANCE</a>
                     <a href="{{asset("/aii")}}" class="btn btn-md btn-primary">KIRIM AII</a>
